@@ -37,7 +37,7 @@ const ShoppingList = {
   },
   update: function(updatedItem) {
     console.log(`Deleting shopping list item \`${updatedItem.id}\``);
-    const {id} = updatedItem;
+    const id = updatedItem;
     if (!(id in this.items)) {
       throw StorageException(
         `Can't update item \`${id}\` because doesn't exist.`)
@@ -74,7 +74,7 @@ const Recipes = {
   },
   update: function(updatedItem) {
     console.log(`Updating recipe with id \`${updatedItem.id}\``);
-    const {id} = updatedItem;
+    const id = updatedItem;
     if (!(id in this.items)) {
       throw StorageException(
         `Can't update item \`${id}\` because doesn't exist.`)

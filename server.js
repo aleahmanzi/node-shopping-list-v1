@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 const {ShoppingList} = require('./models');
+const {createRecipes} = require('/models');
 
 const jsonParser = bodyParser.json();
 const app = express();
@@ -27,3 +28,15 @@ app.get('/shopping-list', (req, res) => {
 app.listen(process.env.PORT || 8080, () => {
   console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
 });
+
+// adding recipes
+
+Recipes.create('pesto pasta', ['basil', 'olive oil', 'parm cheese']);
+Recipes.create('cake', ['frosting', 'flour', 'eggs']);
+Recipes.create('tacos', ['tortillas', 'avacado', 'tomatoes']);
+
+//get request
+app.get('/recipes', (req, res) => {
+  res.json(Recipes.get());
+})
+
